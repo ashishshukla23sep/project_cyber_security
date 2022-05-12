@@ -23,6 +23,7 @@ class Preprocessing_raw:
         Revision:None
         
         """
+        print("Preprocessing started")
         file=open(self.logger_path/'Preprocessing.txt','a+')
         self.logger.log(file,"Preprocessing:preprocessing --Starting Preprocessing")
         pred_sample={}
@@ -47,6 +48,7 @@ class Preprocessing_raw:
     def split_data(self):
         
         processed_data=self.preprocessing()
+        print("Spliting started")
         file=open(self.logger_path/'Preprocessing.txt','a+')
         self.logger.log(file,"Preprocessing:split_data --spliting data started")
         
@@ -56,7 +58,7 @@ class Preprocessing_raw:
         train_index,val_index = next(sss.split(x,y))
         x_train,x_val=x.iloc[train_index],x.iloc[val_index]
         y_train,y_val=y.iloc[train_index],y.iloc[val_index]
-        
+        print("Splitting completed")
         self.logger.log(file,"Preprocessing:split_data -- Spliting completed")
         file.close()
         
