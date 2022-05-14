@@ -50,6 +50,7 @@ class get_best_model:
 
     def call_hyper_tunner_objective(self):
 
+        #Dict of Hyperparameter
         space_XGB= {
                     'max_depth' : hp.choice('max_depth', range(5, 30, 1)),
                     'learning_rate' : hp.quniform('learning_rate', 0.01, 0.5, 0.01),
@@ -65,6 +66,7 @@ class get_best_model:
                     "max_depth": hp.quniform("max_depth", 1, 15,1),
                     "criterion": hp.choice("criterion", ["gini", "entropy"]),
                     }
+        #Intiating the trails
         trails_XGB=Trials()
         print("XGB TUNING STARTED...")
         file=open(self.logger_path/'Hyper_parameter.txt','a+')
